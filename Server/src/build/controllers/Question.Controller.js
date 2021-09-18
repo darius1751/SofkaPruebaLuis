@@ -35,6 +35,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
+};
 exports.__esModule = true;
 var conexion_1 = require("../db/conexion");
 var Category_Controller_1 = require("./Category.Controller");
@@ -44,20 +49,20 @@ var QuestionController = /** @class */ (function () {
     }
     QuestionController.prototype.questions = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
-            var autentication, response, _a, categoryController, answerController, _i, response_1, response1, category, _b;
-            return __generator(this, function (_c) {
-                switch (_c.label) {
+            var autentication, response, _a, categoryController, answerController, _i, response_1, response1, category, answer, questions;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
                         autentication = req.params.autentication;
                         if (!(autentication == '12345')) return [3 /*break*/, 3];
                         return [4 /*yield*/, conexion_1["default"]];
-                    case 1: return [4 /*yield*/, (_c.sent()).query("SELECT q.id, q.question_text,q.category_id FROM question AS q")];
+                    case 1: return [4 /*yield*/, (_b.sent()).query("SELECT q.id, q.question_text,q.category_id FROM question AS q")];
                     case 2:
-                        _a = _c.sent();
+                        _a = _b.sent();
                         return [3 /*break*/, 4];
                     case 3:
                         _a = { message: 'No puedes pasar' };
-                        _c.label = 4;
+                        _b.label = 4;
                     case 4:
                         response = _a;
                         if (!!response[0]) return [3 /*break*/, 5];
@@ -67,26 +72,27 @@ var QuestionController = /** @class */ (function () {
                         categoryController = new Category_Controller_1["default"]();
                         answerController = new Answer_Controller_1["default"]();
                         _i = 0, response_1 = response;
-                        _c.label = 6;
+                        _b.label = 6;
                     case 6:
                         if (!(_i < response_1.length)) return [3 /*break*/, 10];
                         response1 = response_1[_i];
                         return [4 /*yield*/, categoryController.categoryById(response1.category_id)];
                     case 7:
-                        category = _c.sent();
+                        category = _b.sent();
                         response1.category = category;
-                        _b = response1;
                         return [4 /*yield*/, answerController.answerByQuestionId(response1.id)];
                     case 8:
-                        _b.answers = _c.sent();
+                        answer = _b.sent();
+                        response1.answers = answer;
                         delete response1.category_id;
-                        _c.label = 9;
+                        _b.label = 9;
                     case 9:
                         _i++;
                         return [3 /*break*/, 6];
                     case 10:
-                        res.send(response);
-                        _c.label = 11;
+                        questions = __spreadArray([], response);
+                        res.send(questions);
+                        _b.label = 11;
                     case 11: return [2 /*return*/];
                 }
             });

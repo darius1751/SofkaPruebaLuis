@@ -3,6 +3,8 @@ import {Request,Response} from 'express';
 import CategoryController from "./Category.Controller";
 import CategoryModel from "../models/Category.model";
 import AnswerController from "./Answer.Controller";
+import QuestionModel from "../models/Question.model";
+import AnswerModel from "../models/Answer.model";
 export default class QuestionController{
     
     public async questions(req:Request,res:Response):Promise<any>{
@@ -16,10 +18,12 @@ export default class QuestionController{
             for(let response1 of response){
                 const category:CategoryModel = await categoryController.categoryById(response1.category_id);
                 response1.category = category;
-                response1.answers = await answerController.answerByQuestionId(response1.id);
+                const answer:AnswerModel[] = await answerController.answerByQuestionId(response1.id);
+                response1.answers = answer;
                 delete response1.category_id;
             }   
-            res.send(response);
+            const questions:QuestionModel[] = [...response];
+            res.send(questions);
         }
             
     }
