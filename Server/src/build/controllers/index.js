@@ -5,6 +5,7 @@ var morgan = require("morgan");
 var express = require("express");
 var Index_Routers_1 = require("../routers/Index.Routers");
 var User_Routers_1 = require("../routers/User.Routers");
+var Question_Routers_1 = require("../routers/Question.Routers");
 var Server = /** @class */ (function () {
     function Server() {
         this.app = express();
@@ -17,6 +18,7 @@ var Server = /** @class */ (function () {
         this.app.use(express.json());
         this.app.use('/', new Index_Routers_1["default"]().router);
         this.app.use('/user', new User_Routers_1["default"]().router);
+        this.app.use('/questions', new Question_Routers_1["default"]().router);
     };
     Server.prototype.init = function () {
         var _this = this;

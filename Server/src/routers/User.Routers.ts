@@ -1,4 +1,4 @@
-import { Router,Request,Response } from "express";
+import { Router } from "express";
 import UserController from "../controllers/User.Controller";
 export default class UserRouters{
     public router:Router;

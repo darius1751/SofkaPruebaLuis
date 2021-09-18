@@ -4,6 +4,7 @@ import * as morgan from 'morgan';
 import * as express from 'express';
 import IndexRouters from '../routers/Index.Routers';
 import UserRouters from '../routers/User.Routers';
+import QuestionRouters from '../routers/Question.Routers';
 class Server{
     private app:Application;
     constructor(){ 
@@ -17,6 +18,7 @@ class Server{
         this.app.use(express.json());
         this.app.use('/',new IndexRouters().router);
         this.app.use('/user',new UserRouters().router);
+        this.app.use('/questions',new QuestionRouters().router);
     }
     public init():void{
         this.app.listen(this.app.get('port'),()=>{

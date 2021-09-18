@@ -23,7 +23,7 @@ CREATE TABLE question
 (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     category_id INT NOT NULL,
-    question_text VARCHAR(125) NOT NULL
+    question_text VARCHAR(225) NOT NULL
 );
 ALTER TABLE question ADD FOREIGN KEY(category_id) REFERENCES category(id);
 CREATE TABLE answer
@@ -103,7 +103,7 @@ VALUES(11,'La balanza',0),
 (11,'El termometro',0),
 (11,'Los puntos cardinales',100),
 (11,'El telescopio',0);
-INSERT INTO question(question_text,category_id) VALUES('¿En el lugar que me sirve de orientacion es por donde sale el sol dicho lugar es el oriente, que otro nombre recibe este punto cardinal',3);
+INSERT INTO question(question_text,category_id) VALUES('¿En el lugar que me sirve de orientacion es por donde sale el sol dicho lugar es el oriente, que otro nombre recibe este punto cardinal?',3);
 INSERT INTO answer(question_id,answer_text,point)
 VALUES(12,'Este',100),
 (12,'Oeste',0),
@@ -189,34 +189,4 @@ VALUES(25,'12',0),
 (25,'7',0),
 (25,'8',100),
 (25,'10',0);
-INSERT INTO category(name) VALUE('Entretenimiento');
-INSERT INTO question(question_text,category_id) VALUES('¿Cual es el hijo mayor de Homero Simpson?',5);
-INSERT INTO answer(question_id,answer_text,point)
-VALUES(21,'Nelson',0),
-(21,'Milhouse',0),
-(21,'Lisa',0),
-(21,'Bart',100);
-INSERT INTO question(question_text,category_id) VALUES('¿Cual es el segundo nombre Bart Simpson?',5);
-INSERT INTO answer(question_id,answer_text,point)
-VALUES(22,'Jojo',100),
-(22,'Jay',0),
-(22,'Bartolomeo',0),
-(22,'No tiene',0);
-INSERT INTO question(question_text,category_id) VALUES('¿Cual es el color de pelo de Marge Simpson?',5);
-INSERT INTO answer(question_id,answer_text,point)
-VALUES(23,'Morado',0),
-(23,'Rojo',0),
-(23,'Azul',100),
-(23,'Amarillo',0);
-INSERT INTO question(question_text,category_id) VALUES('¿Cual es la edad de Bart Simpson?',5);
-INSERT INTO answer(question_id,answer_text,point)
-VALUES(24,'12',0),
-(24,'8',0),
-(24,'11',0),
-(24,'10',100);
-INSERT INTO question(question_text,category_id) VALUES('¿Cual es la edad de Lisa Simpson?',5);
-INSERT INTO answer(question_id,answer_text,point)
-VALUES(25,'12',0),
-(25,'7',0),
-(25,'8',100),
-(25,'10',0);
+    

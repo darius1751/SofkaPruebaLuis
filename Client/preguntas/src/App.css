@@ -61,6 +61,7 @@
 .container{
   max-width: 80%;
   margin:0 auto;
+  background-color: #DAF7A6;
 }
 .login{
   margin: 0 auto;
@@ -82,18 +83,23 @@
 .btn-init{
   background-color: #c2279b;
 }
+
 .btn-nav{
-  background-color: aqua;
   text-align: center;
   display: inline-block;
 }
+
 .a{
   text-decoration: none;
-  font: 1.5rem bold;
+  font-family: 'kanit','sans-serif';
 }
 .active{
-  
+ font:bold; 
+ color:rgb(0, 26, 255);
 }
 .nav{
-  background-color:aqua;
+  background-image:linear-gradient(to right,orange,yellow);
+}
+p{
+  font-family: 'kanit', sans-serif;
 }
