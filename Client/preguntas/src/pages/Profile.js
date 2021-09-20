@@ -13,10 +13,10 @@ const Profile = ({user,setUser})=>{
         };
     }, [user,name,history]);
     return (
-        <div>
+        <div className='container-profile'>
             <Nav setUser={setUser} user={user}/>
-            <h2>Bienvenido {user.name}</h2>
-            <section>
+            <h2 className='section'>Bienvenido {user.name}</h2>
+            <section className='section'>
                 <p>Este es un juego modo Quiz, el cual tiene 5 categorias</p>
                 <p>5 Preguntas por Categoria</p>
                 <p>Tiene 5 rondas, 1 pregunta por categoria</p>
